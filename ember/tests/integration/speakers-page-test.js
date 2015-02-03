@@ -73,3 +73,10 @@ test('Should be able visit a speaker page', function() {
     equal(find('h4').text(), 'Bugs Bunny');
   });
 });
+
+test('Should list all presentations for a speaker', function() {
+  visit('/speakers/1').then(function() {
+    equal(find('li:contains("What\'s up with Docs?")').length, 1);
+    equal(find('li:contains("Of course, you know, this means war.")').length, 1);
+  });
+});
